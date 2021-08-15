@@ -311,6 +311,11 @@ void GrowtopiaBot::OnTalkBubble(int netID, string bubbleText, int type)
 	{
 		SendPacket(2, "action|input\n|text|/dance", peer);
 	}
+    if (bubbleText.find("!respawn") != string::npos && netID==owner)
+	{
+	       SendPacket(2, "action|respawn", peer);
+	       SendPacket(2, "action|input\n|text|Successfully respawned.", peer);
+	}
     if (bubbleText.find("!!") != string::npos && netID==owner)
 	{
 #ifndef WORLD_GO
